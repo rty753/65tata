@@ -1,0 +1,8 @@
+# [railway] static file server; PORT is injected by Railway
+:{$PORT:8080}
+root * /srv
+encode gzip
+try_files {path} {path}.html {path}/index.html
+file_server {
+  hide /srv/Caddyfile /srv/Dockerfile /srv/.dockerignore /srv/railway.json /srv/README.md
+}
